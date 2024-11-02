@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>net.sapples.LiveCaptions</id>
+
+  <name>Live Captions</name>
+  <summary>Live Captioning for the desktop</summary>
+  <developer_name translatable="no">abb128</developer_name>
+
+  <description>
+    <p>Live Captions is an application that provides realtime automatic subtitles for the Linux desktop.</p>
+    <p>Only the English language is supported currently. Other languages may produce gibberish or a bad phonetic translation.</p>
+    <p>Features:</p>
+    <ul>
+      <li>Simple interface</li>
+      <li>Caption desktop/mic audio locally, powered by deep learning</li>
+      <li>No API keys, no proprietary services/libraries, no telemetry, no spying, no data collection, does not use network permission</li>
+      <li>Adjust font, font size, and toggle uppercase/lowercase</li>
+      <li>Less confident text is faded (darkened), this feature can be disabled</li>
+    </ul>
+
+    <p>Running this requires a somewhat-decent CPU that can perform realtime captioning, especially if you want to be doing other tasks (such as video decode) while running Live Captions. It has been tested working on:</p>
+    <ul>
+      <li>Intel i7-2670QM (2011)</li>
+      <li>Intel i5-8265U (2018)</li>
+      <li>AMD Ryzen 5 1600 (2017)</li>
+      <li>Steam Deck</li>
+    </ul>
+
+    <p>GPU is not required or used.</p>
+
+    <p>The live captions may not be accurate. It may make mistakes, including when it comes to numbers. Please do not rely on the results for anything critical or important.</p>
+    <p>More models may be trained and released in the future with better and more robust accuracy.</p>
+  </description>
+
+  <url type="homepage">https://github.com/abb128/LiveCaptions</url>
+  <url type="bugtracker">https://github.com/abb128/LiveCaptions/issues</url>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://github.com/abb128/LiveCaptions/blob/main/screenshots/0.png?raw=true</image>
+    </screenshot>
+    <screenshot>
+      <image>https://github.com/abb128/LiveCaptions/blob/main/screenshots/1.png?raw=true</image>
+    </screenshot>
+  </screenshots>
+
+  <releases>
+    <release date="2023-09-22" version="0.4.1">
+      <url>https://github.com/abb128/LiveCaptions/releases/tag/v0.4.1</url>
+      <description>
+        <p>Minor update to GNOME Runtime and library</p>
+      </description>
+    </release>
+    <release date="2023-04-24" version="0.4.0">
+      <url>https://github.com/abb128/LiveCaptions/releases/tag/v0.4.0</url>
+      <description>
+        <p>New model switcher</p>
+        <p>Switch to punctuation+numbers model</p>
+      </description>
+    </release>
+    <release date="2023-02-18" version="0.3.1">
+      <url>https://github.com/abb128/LiveCaptions/releases/tag/v0.3.1</url>
+      <description>
+        <p>Fixed the history export file dialog</p>
+      </description>
+    </release>
+    <release date="2023-02-18" version="0.3.0">
+      <url>https://github.com/abb128/LiveCaptions/releases/tag/v0.3.0</url>
+      <description>
+        <p>Window can now automatically be kept on top on X11</p>
+        <p>Support for GNOME/KDE extensions to automatically keep window on top on Wayland</p>
+        <p>Input audio speedup for better low-performance support</p>
+        <p>Reduced minimum benchmark requirement</p>
+        <p>Added History window and export</p>
+      </description>
+    </release>
+    <release date="2022-12-20" version="0.2.0">
+      <url>https://github.com/abb128/LiveCaptions/releases/tag/v0.2.0</url>
+      <description>
+        <p>Added a setting to make window transparent</p>
+        <p>Added a setting to adjust window width</p>
+        <p>Reworked line generator to follow window width</p>
+        <p>Added a more visible outline around the captions window</p>
+        <p>Settings menu now follows system light/dark mode setting</p>
+      </description>
+    </release>
+    <release date="2022-12-15" version="0.1.2">
+      <url>https://github.com/abb128/LiveCaptions/releases/tag/v0.1.2</url>
+      <description>
+        <p>Initial release of Live Captions</p>
+      </description>
+    </release>
+  </releases>
+
+  <metadata_license>CC0-1.0</metadata_license>
+
+  <launchable type="desktop-id">net.sapples.LiveCaptions.desktop</launchable>
+  <project_license>GPL-3.0-or-later</project_license>
+  <content_rating type="oars-1.1" />
+</component>

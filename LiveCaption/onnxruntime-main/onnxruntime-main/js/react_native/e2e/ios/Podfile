@@ -1,0 +1,21 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '13.0'
+
+target 'OnnxruntimeModuleExample' do
+  config = use_native_modules!
+
+  use_react_native!(:path => config["reactNativePath"])
+
+  use_frameworks!
+
+  ort_c_local_pod_path = ENV['ORT_C_LOCAL_POD_PATH']
+  if ort_c_local_pod_path != nil
+    print 'Using onnxruntime-c pod at ', ort_c_local_pod_path, "\n"
+    pod 'onnxruntime-c', :path => ort_c_local_pod_path
+  end
+  pod 'onnxruntime-react-native', :path => '../node_modules/onnxruntime-react-native'
+
+  inherit! :search_paths
+end

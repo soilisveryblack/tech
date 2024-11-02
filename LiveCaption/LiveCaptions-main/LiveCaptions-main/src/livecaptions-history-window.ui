@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="LiveCaptionsHistoryWindow" parent="GtkWindow">
+    <property name="default-width">680</property>
+    <property name="default-height">720</property>
+    <property name="resizable">False</property>
+    <property name="title">Live Captions History</property>
+
+    <property name="titlebar">
+      <object class="GtkHeaderBar">
+        <child type="end">
+          <object class="GtkButton">
+            <property name="icon-name">refresh-symbolic</property>
+            <property name="tooltip-text">Refresh</property>
+            <signal name="clicked" handler="refresh_cb" swapped="yes"/>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton">
+            <property name="icon-name">export-symbolic</property>
+            <property name="tooltip-text">Export history as .txt</property>
+            <signal name="clicked" handler="export_cb" swapped="yes"/>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton">
+            <property name="icon-name">entry-clear-symbolic</property>
+            <property name="tooltip-text">Clear history</property>
+            <signal name="clicked" handler="warn_deletion_cb" swapped="yes"/>
+          </object>
+        </child>
+      </object>
+    </property>
+
+
+    <child>
+      <object class="GtkScrolledWindow" id="scroll">
+        <property name="vexpand">True</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="vexpand">True</property>
+            <property name="valign">end</property>
+
+            <child>
+              <object class="GtkButton" id="load_more_button">
+                <property name="margin-top">8</property>
+                <property name="label">Load More</property>
+                <property name="halign">center</property>
+                <property name="valign">start</property>
+                
+                <signal name="clicked" handler="load_more_cb" swapped="yes"/>
+                <style>
+                  <class name="pill"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="main_box">
+                <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
+                <property name="halign">start</property>
+                <property name="valign">end</property>
+
+                <property name="margin-start">18</property>
+                <property name="margin-end">36</property>
+                <property name="margin-top">12</property>
+                <property name="margin-bottom">12</property>
+
+                <property name="orientation">vertical</property>
+
+
+              </object>
+            </child>
+
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

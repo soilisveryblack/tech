@@ -1,0 +1,51 @@
+.main-window-parent {
+    background-color: #000000FF;
+    color: white;
+
+    border: 1px solid #3a3a3a;
+}
+
+.main-container {
+    background-color: #00000000;
+}
+
+.warning-icon {
+    animation-name: flashing;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-delay: 0s;
+    animation-fill-mode: none;
+    animation-play-state: running;
+}
+
+.slow-icon {
+    color: lightsalmon;
+}
+
+.slowest-icon {
+    color: lightcoral;
+}
+
+.keep-above-tip {
+    margin-top: 6pt;
+}
+
+.history-label {
+    line-height: 1.3;
+}
+
+@keyframes flashing {
+    0% {
+      color: yellow;
+    }
+  
+    50% {
+      color: red;
+    }
+
+    100% {
+      color: yellow;
+    }
+}

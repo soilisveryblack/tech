@@ -1,0 +1,8 @@
+build
+build/*
+_build
+_build/*
+build-dir
+.flatpak-builder
+result
+aprilv0_en-us.april

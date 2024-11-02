@@ -1,0 +1,90 @@
+{
+    "app-id" : "net.sapples.LiveCaptions",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "master",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "livecaptions",
+    "finish-args" : [
+        "--share=ipc",
+        "--device=dri",
+        "--socket=wayland",
+        "--socket=pulseaudio",
+        "--socket=fallback-x11"
+    ],
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "/onnx_root",
+        "*.la",
+        "*.a"
+    ],
+    "build-options" : {
+        "env" : {
+            "ONNX_ROOT" : "/app/onnx_root"
+        }
+    },
+    "modules" : [
+        {
+            "name" : "onnxruntime",
+            "buildsystem" : "simple",
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "only-arches" : ["x86_64"],
+                    "dest" : "onnxruntime-1",
+                    "url" : "https://github.com/microsoft/onnxruntime/releases/download/v1.14.1/onnxruntime-linux-x64-1.14.1.tgz",
+                    "sha256" : "010585f534d822bf02d54c7cfc53b57aa3eb0cf34f8fb7503ee519ed18e25d29"
+                },
+
+                {
+                    "type" : "archive",
+                    "only-arches" : ["aarch64"],
+                    "dest" : "onnxruntime-1",
+                    "url" : "https://github.com/microsoft/onnxruntime/releases/download/v1.14.1/onnxruntime-linux-aarch64-1.14.1.tgz",
+                    "sha256" : "20965e05d2da6a0e6acedda8aca1a8f75c3f4cb1d7932403a9977b753b1b2120"
+                }
+            ],
+            "build-commands" : [
+                "mkdir -p $ONNX_ROOT",
+                "mv onnxruntime-1/* $ONNX_ROOT",
+
+                "mkdir -p $FLATPAK_DEST/lib",
+                "cp $ONNX_ROOT/lib/* $FLATPAK_DEST/lib"
+            ]
+        },
+
+        {
+            "name": "aprilmodel",
+            "buildsystem" : "simple",
+            "sources" : [
+                {
+                    "type" : "file",
+                    "dest-filename" : "aprilv0_en-us.april",
+                    "url" : "https://april.sapples.net/april-english-dev-01110_en.april",
+                    "sha256" : "77eb95d0fa4f7708a37e868c2265301ee6c42dcb25e63ca63eea3d9cbadbc1f3"
+                }
+            ],
+            "build-commands" : [
+                "install -Dm644 aprilv0_en-us.april -t ${FLATPAK_DEST}/LiveCaptions/models"
+            ]
+        },
+
+        {
+            "name" : "livecaptions",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/abb128/LiveCaptions",
+                    "branch" : "main"
+                }
+            ]
+        }
+    ]
+}
