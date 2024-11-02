@@ -1,0 +1,3 @@
+# SmartTV License Key
+- SN: `DH1WVA002010RQ3AFF5C` License: `230411`
+- SN: `DH1WVA002010RQ3AU9KT` License: `120710`
